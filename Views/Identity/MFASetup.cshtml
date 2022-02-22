@@ -1,0 +1,28 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model MFAViewModel
+
+<p>
+    Please input this token in your authenticator app
+</p>
+<p>
+    @Model.Token
+</p>
+
+<form asp-action="MFASetup" asp-controller="Identity" method="post">
+    @Html.ValidationSummary()
+
+    <div class="form-group col-4">
+        @*Code*@
+        <label asp-for="Code">Code:</label>
+        <input type="text" asp-for="Code" class="form-control" />
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Validate!</button>
+
+</form>
